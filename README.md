@@ -51,7 +51,7 @@
 
 ```bash
 # 克隆仓库
-git clone <repository-url>
+git clone https://github.com/linmiao09/GKD_TakeTwo_monipao.git
 
 # 进入项目目录
 cd school-runing-dut-main/desktop-app
