@@ -54,7 +54,7 @@
 git clone https://github.com/linmiao09/GKD_TakeTwo_monipao.git
 
 # 进入项目目录
-cd school-runing-dut-main/desktop-app
+cd /GKD_TakeTwo_monipao/desktop-app
 
 # 安装依赖
 npm install
