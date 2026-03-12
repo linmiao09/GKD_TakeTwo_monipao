@@ -1,0 +1,35 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build output
+out
+dist
+
+# IDE / Editor
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log*
+logs/
+
+# Development / Temporary
+.eslintcache
+test-electron*.cjs
+.env
+.env.*
+
+# Large files / Media
+*.mp4
+*.zip
+*.7z

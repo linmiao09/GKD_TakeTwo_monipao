@@ -1,0 +1,33 @@
+appId: com.taketwo.run.simulator
+productName: TakeTwo模拟跑
+directories:
+  buildResources: build
+  output: dist
+files:
+  - out/**/*
+  - resources/**/*
+  - package.json
+asar: true
+asarUnpack:
+  - resources/**
+win:
+  executableName: TakeTwo模拟跑
+  target:
+    - nsis
+nsis:
+  artifactName: ${productName}-v${version}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: always
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+mac:
+  entitlementsInherit: build/entitlements.mac.plist
+  notarize: false
+dmg:
+  artifactName: ${name}-${version}.${ext}
+linux:
+  target:
+    - AppImage
+  category: Utility
+npmRebuild: true
