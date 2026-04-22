@@ -23,8 +23,8 @@
 ## V1.0.3实现了步数以及步频（以业内主流运动软件Keep演示）
 
 ### V1.0.3(能看见有步幅与步频)
-![图片3.png](images/%E5%9B%BE%E7%89%873.png)
-![图片4.png](images/%E5%9B%BE%E7%89%874.png)
+![图片3.png](images/%E5%9B%BE%E7%89%877.png)
+![图片4.png](images/%E5%9B%BE%E7%89%878.png)
 
 ### V1.0.2（没有步幅与步频）
 ![图片5.png](images/%E5%9B%BE%E7%89%875.png)
