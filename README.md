@@ -1,5 +1,5 @@
 # 广科大乐跑刷跑软件
-## 不做开源了
+## 因为校方压力，不做开源了！
 > 有问题请联系：[miaomiaolinmiao@gmail.com](mailto:miaomiaolinmiao@gmail.com)
 此项目于2026年7月删库
 ---
