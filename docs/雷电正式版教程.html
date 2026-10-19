@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TTRS 2.0 系列正式版｜雷电使用教程</title>
+  <style>
+    :root{--ink:#193047;--muted:#5c7084;--line:#dce6ef;--blue:#1b65c9}*{box-sizing:border-box}
+    body{margin:0;background:#edf3f8;color:var(--ink);font:16px/1.85 "Segoe UI","Microsoft YaHei",sans-serif}
+    main{max-width:980px;margin:30px auto 70px;padding:0 22px}header,section{border-radius:16px;padding:29px 34px;margin:18px 0;background:#fff;border:1px solid var(--line)}
+    header{background:linear-gradient(125deg,#173d62,#276d87);color:#fff;border:0;padding:38px 34px}header p{color:#dcecf9;margin:10px 0}.eyebrow{font-size:12px;letter-spacing:2px;color:#bfe3f1}
+    h1{font-size:30px;line-height:1.5;margin:12px 0}h2{font-size:23px;line-height:1.5;margin:0 0 18px}h3{font-size:17px;margin:24px 0 10px}p{margin:12px 0}li{margin:9px 0}ul,ol{padding-left:25px}
+    a{color:var(--blue);text-underline-offset:3px}.note{border-left:4px solid #4285c5;padding:13px 16px;background:#eef6ff;border-radius:0 8px 8px 0;font-size:14px;margin:18px 0}.warn{border-left-color:#b87923;background:#fff7e8}.green{border-left-color:#27866c;background:#edf8f3}
+    code{font:14px Consolas,"Microsoft YaHei",monospace;background:#edf2f7;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;font-size:14px;margin:15px 0}th,td{padding:11px 13px;vertical-align:top;text-align:left;border-bottom:1px solid var(--line)}th{background:#f0f5fa}td:first-child{width:28%}.subtle,footer{color:var(--muted);font-size:13px}details{border:1px solid var(--line);border-radius:9px;padding:12px 16px;margin:11px 0}summary{cursor:pointer;font-weight:650}details p{font-size:14px}nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}nav a{padding:5px 10px;background:#f0f5fa;border-radius:6px;font-size:13px;text-decoration:none}footer{text-align:center;padding:20px}
+    @media(max-width:700px){main{padding:0 12px}header,section{padding:23px}h1{font-size:25px}table{font-size:13px}th,td{padding:8px}td:first-child{width:30%}}
+    @media print{@page{size:A4;margin:16mm}body{background:white;font-size:11pt}main{margin:0;max-width:none;padding:0}header,section{border:0;border-radius:0;padding:10px 0;margin:0 0 12px}header{background:none;color:#193047}header p,.eyebrow{color:#5c7084}h2,h3{break-after:avoid}tr,.note,details{break-inside:avoid}details>*{display:block!important}nav{display:none}}
+  </style>
+</head>
+<body><main>
+  <header><div class="eyebrow">STABLE · WINDOWS · LDPLAYER</div><h1>TTRS 2.0 系列正式版<br>雷电安装与使用教程</h1><p>内部版本 2.0.1。按维护者指定的既有程序打包，普通使用无需配置 Android Studio。</p></header>
+
+  <section id="version"><h2>先选对版本</h2>
+    <table><thead><tr><th>版本</th><th>渠道与适用人群</th></tr></thead><tbody><tr><td><strong>2.0 系列 / 2.0.1</strong></td><td>正式版。主要面向使用雷电、希望安装步骤较少的用户；程序也保留原生 AVD 模式。</td></tr><tr><td><strong>2.1.1</strong></td><td>测试版。仅支持 Android Studio 原生 AVD，安装配置步骤较多；使用专门的 AVD 教程。</td></tr></tbody></table>
+    <p>本包来自 <code>dist/win-unpacked</code> 的既有运行程序，<strong>内部版本号是 2.0.1</strong>。“2.0 正式版”指发布系列，不表示把内部版本改成了 2.0.0。</p>
+    <div class="note green">维护者最新反馈：2.0 系列程序配合指定的步数兼容 v2 APK，在雷电中也可以记录步数。本次核对了程序与 APK 文件；没有把这一反馈扩展成所有雷电版本、账号和应用规则都兼容的保证。</div>
+    <nav><a href="#install">安装雷电</a><a href="#apk">安装 APK</a><a href="#config">配置程序</a><a href="#map">配置地图</a><a href="#daily">日常使用</a><a href="#faq">问题排查</a></nav>
+  </section>
+
+  <section id="install"><h2>01 / 安装并启动雷电</h2>
+    <ol><li>从<a href="https://www.ldmnq.com/">雷电模拟器官方网站</a>下载 Windows 安装程序，完成安装。</li><li>记下实际安装目录，例如 <code>D:\leidian\LDPlayer9</code>；不同版本或自定义安装位置可能不同。</li><li>启动模拟器，等安卓桌面完全进入。第一次建议只运行一个实例，便于定位问题。</li><li>电脑提示虚拟化未开启时，按电脑厂商及雷电官方说明设置 VT / SVM。软件界面、功能和最新版本兼容性以实际安装环境为准。</li></ol>
+    <p>本路线不需要 Android Studio，也不需要单独安装 Node.js、npm、开发源码或 ARM 转译包。不要把当前模拟器已经支持的 APK 兼容性等同于任意其他 APK 都可运行。</p>
+    <p class="subtle">多实例管理参考<a href="https://help.ldmnq.com/docs/btJtNt">雷电官方多开器说明</a>。不要把模拟器里显示的设备名称当成程序的实例编号。</p>
+  </section>
+
+  <section id="apk"><h2>02 / 安装正确的 APK</h2>
+    <p>本版配套文件名为 <code>app-taketwo2.0.3-stepfix-v2-signed.apk</code>。TTRS 桌面版本 2.0.1 与 APK 文件名中的 2.0.3 是不同的版本标识。</p>
+    <ol><li>可以在对应 GitHub Release 的附件中单独下载 APK；也可以使用本包的 <code>软件/resources/apk</code> 目录中的同名文件。</li><li>把 APK 拖进已启动的雷电窗口，或使用雷电侧边栏“安装 APK”选择这个文件。</li><li>等待安装完成，在雷电内打开目标应用，自行登录并授予正常使用需要的权限。</li><li>不要误用原版 APK、旧的 v1 补丁或把文件改名后当成 v2。</li></ol>
+    <p class="subtle">配套 v2 APK 的 SHA-256：<code>2dc2f8a3744e3eeed01e445061ffb149aa50bcfff18be8e04d9e1b206f34b5e4</code>。</p>
+    <div class="note warn">如果提示签名冲突，先处理需保留的数据，再决定是否手动卸载模拟器里的原应用。<strong>卸载会清除该应用的本地数据。</strong>第三方 APK 的使用和再分发条件独立适用，见同目录“分发说明.txt”。</div>
+  </section>
+
+  <section id="config"><h2>03 / 配置 TTRS</h2>
+    <ol><li>完整解压程序包，打开 <code>软件/TTRS.exe</code>。保留旁边所有 DLL、resources、locales 和许可证文件。</li><li>在程序左侧的 <strong>选择模拟器</strong> 中选择 <strong>雷电</strong>。首次默认可能选中 AVD，需要手动切换。</li><li>在 <strong>雷电安装目录</strong> 填写实际目录（例如 <code>D:\leidian\LDPlayer9</code>），也可直接填写 <code>ldconsole.exe</code> 或 <code>dnconsole.exe</code> 的完整路径。</li><li>核对 <strong>实例索引</strong>，默认是 <code>0</code>；多个实例时应与雷电多开器对应编号一致。点击 <strong>启动雷电</strong> 并等待安卓桌面，保持对应实例运行。</li><li>点击 <strong>预先定位</strong>，在目标应用里检查是否到了路线起点。定位不对时先修正目录、实例和权限，不要立即开始。</li></ol>
+    <div class="note">2.0.1 保留 AVD / 雷电两种模式，但“步数兼容”区域的检查与安装入口仅在 AVD 模式下显示。使用雷电时，按上一节通过雷电安装 APK，不要套用测试版的 AVD 检查流程。</div>
+  </section>
+
+  <section id="map"><h2>04 / 地图与路线</h2>
+    <ol><li>需要在线地图时，在<a href="https://console.amap.com/">高德开放平台</a>创建 <strong>Web 端（JS API）</strong> Key，并取得同一条 Key 对应的安全密钥。</li><li>在 TTRS 的“地图与高级设置”完整填写 Key 和安全密钥。配额、费用、开通要求以高德官方为准。</li><li><strong>2.0.1 没有测试版的“应用并重新加载地图”按钮。</strong>填好后，如果只有路线或 Logo 而没有道路建筑，完全退出并重新打开 TTRS，让完整凭据重新加载。</li><li>内置操场路线可点击 <strong>恢复默认四点</strong>，保持闭合循环及椭圆跑道选项。</li><li>自定义路线先清空默认四点，再搜索自己的地点、按顺序点地图加点。搜索只移动地图，不会自动替换旧点。</li><li>按需要调整目标距离、配速和采样间距；可保存命名路线，日常直接选择。</li></ol>
+    <p>椭圆跑道需要闭合路线且恰好 4 点；普通开放路线不会循环，长度必须达到发送目标。地图显示与内部 WGS-84 坐标由程序转换，不需手动换算。</p>
+    <p class="subtle">高德参考：<a href="https://lbs.amap.com/api/javascript-api-v2/prerequisites">申请 Web JS API Key</a>、<a href="https://lbs.amap.com/api/javascript-api-v2/guide/abc/jscode">安全密钥说明</a>。请勿公开个人密钥或填好密钥的用户配置目录。</p>
+  </section>
+
+  <section id="daily"><h2>05 / 日常使用</h2>
+    <ol><li>启动雷电，等待桌面；再启动 TTRS，确认选的是雷电模式、正确的目录与实例。</li><li>选择保存的路线并核对参数，点击预先定位，在目标应用内核对位置。</li><li>在目标应用中开始测试，再点 TTRS 的开始模拟。</li><li>需要中断时使用暂停、继续或停止。TTRS 只控制定位发送，目标应用的计时与保存需要自行操作。</li><li>完成后在目标应用中暂停、结束并处理结果。避免测试中电脑休眠或模拟器意外关闭。</li></ol>
+    <div class="note"><strong>不要套用 2.1.1 的停止界面行为：</strong>2.0.1 手动停止后可能保留最后进度；这份正式版保留原程序，没有加入测试版的进度清空和地图重载修复。停止是否生效以不再继续发送定位、状态提示和目标应用实际表现为准。</div>
+    <p>若只是想下次更容易打开，可分别为雷电和 TTRS.exe 创建桌面快捷方式；不要把 TTRS.exe 从运行目录单独搬到桌面。</p>
+  </section>
+
+  <section id="faq"><h2>06 / 常见问题</h2>
+    <details><summary>提示找不到雷电控制台工具</summary><p>检查填写的是实际安装目录，不是桌面快捷方式。目录内应有该版本的 ldconsole.exe 或 dnconsole.exe。自定义安装到其他盘时应同步修改程序路径。</p></details>
+    <details><summary>提示连续定位失败或 locate 命令失败</summary><p>先确认对应实例已进入安卓桌面，目录和实例编号正确。完全关闭 TTRS 后重新启动对应实例再试。不同雷电版本的控制台返回和定位行为可能有差异，反馈时提供雷电版本、控制台文件名与报错文字；不要无限重复开始任务。</p></details>
+    <details><summary>装了 APK，但没有步数</summary><p>先确认装的是指定 v2 文件且哈希一致。目标应用需要实际取得定位和距离变化；静止不动不代表兼容 APK 一定生成步数。程序面板的估算步数也不能代替目标应用最终保存的结果。</p></details>
+    <details><summary>目标应用提示检测到模拟器、作弊或停止计时</summary><p>停止本次测试并按目标应用规则处理。本次把版本设为正式版，不代表此前的环境识别问题已被修复；没有新增规避检测逻辑。</p></details>
+    <details><summary>高德底图空白</summary><p>检查同一条 Web 端（JS API）Key 和安全码是否配对，完整退出并重开 TTRS，同时检查网络与高德域名规则。本版没有 2.1.1 的专用重载按钮。</p></details>
+    <details><summary>位置不对或一直停在原地</summary><p>检查选中了正确实例，目标应用的定位权限正常。不要同时播放雷电自己的另一条模拟路线；先预先定位并在目标应用确认，再开始发送。</p></details>
+    <details><summary>想使用 Android Studio AVD</summary><p>2.0.1 仍保留 AVD 模式；需要仅保留 AVD 并测试地图重载、停止清空等改动的用户可使用 2.1.1 测试版。两版放在不同文件夹，避免同时运行。两版可能沿用同一 Windows 用户的已有配置，切换后重新核对模式、目录与路线。</p></details>
+    <details><summary>更新、反馈与数据</summary><p>更新前退出旧程序，完整解压到新目录，不要删除个人配置目录。反馈提供 TTRS、雷电版本、实例编号和报错文字，遮盖账号、地图密钥和其他隐私。本版没有界面化路线导入导出功能。</p></details>
+  </section>
+  <footer>TTRS 2.0 系列正式版（2.0.1） · 文档日期 2026-10-19<br>本教程可离线阅读；地图和第三方应用服务仍需网络。</footer>
+</main></body></html>

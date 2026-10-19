@@ -1,4 +1,10 @@
-TTRS 2.1.1 — Third-party notices
+TTRS — Third-party notices
+
+Release channels: TTRS 2.0 stable (build 2.0.1) and TTRS 2.1.1 prerelease.
+This existing notice collection was prepared for the 2.1.1 distribution.
+Keep the license and copyright files shipped with each binary distribution;
+this document does not replace those component-specific files or grant
+additional rights to the separately downloadable compatibility APK.
 
 The following licenses apply to third-party components, not to TTRS proprietary application code.
 

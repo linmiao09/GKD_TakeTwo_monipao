@@ -1,10 +1,13 @@
-TTRS 2.1.1 · 分发说明
+TTRS 2.0 正式版 / 2.1.1 测试版 · 分发说明
 文档日期：2026-10-19
 
 1. 发布形式
 本包仅提供 Windows x64 可运行软件和使用文档，不提供 TTRS 的源码工程。
 “提供软件下载”与“开源”是不同的发布形式；本包不声明采用开源许可证。
 是否收费、再分发及其他授权条件，以作者另行明确发布的条款为准。
+正式渠道为 TTRS 2.0 系列，当前构建号 2.0.1，支持雷电及原生 AVD。
+测试渠道为 TTRS 2.1.1，仅支持 Android Studio 原生 AVD。
+渠道调整不改变已有程序内部版本号，不覆盖已发布的历史 ZIP。
 
 2. 第三方组件
 第三方开源组件仍适用各自许可证，不受 TTRS 闭源分发说明替代。
@@ -12,14 +15,22 @@ TTRS 2.1.1 · 分发说明
 和程序资源内的相关许可、版权声明。
 
 3. Android 与地图服务
-Android Studio、Android SDK、系统镜像由用户从 Android 官方获取并接受对应条款。
+雷电模拟器由用户从其官方渠道获取；Android Studio、Android SDK、系统镜像
+由用户从 Android 官方获取，并分别接受对应条款。
 高德 JS API 由软件联网加载；用户需自行申请 Web 端（JS API）Key 和配套安全密钥。
 地图服务的账号、配额、费用、服务范围和使用条件以高德官方为准。
 本包不授予任何第三方软件、服务或商标的额外权利。
 
-4. 包内 APK
-现有 TTRS 2.1.1 运行资源包含 TakeTwo 2.0.3 兼容性测试 APK，
-位于“软件/resources/apk”目录，用于现有“安装 / 修复”功能。
+4. 兼容 APK
+两个渠道的运行资源保留现有 TakeTwo 2.0.3 兼容性测试 APK；
+两者的 GitHub Release 另提供独立下载附件：
+app-taketwo2.0.3-stepfix-v2-signed.apk
+该文件是 step-fallback-v2 步数兼容补丁版，不是未经修改的原版 APK。
+APK 的 2.0.3 与 TTRS 的 2.0.1 / 2.1.1 是不同软件的版本号。
+原资源位于“软件/resources/apk”目录，用于已有“安装 / 修复”等兼容功能；
+雷电环境可按正式版教程手动拖入 APK 安装。
+正式版附件：https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/download/v2.0.1/app-taketwo2.0.3-stepfix-v2-signed.apk
+测试版附件：https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/download/v2.1.1/app-taketwo2.0.3-stepfix-v2-signed.apk
 该 APK 的权利及再分发条件独立于 TTRS；持有安装包不等于获得其再分发授权。
 此说明本身不构成第三方 APK 的再分发许可。
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="TTRS 2.1.1 中文使用教程：一次性配置 Android Studio 原生 AVD，日常启动、地图配置与问题排查。">
-  <title>TTRS 2.1.1｜从安装到使用</title>
+  <meta name="description" content="TTRS 2.1.1 测试版中文使用教程：一次性配置 Android Studio 原生 AVD，日常启动、地图配置与问题排查。">
+  <title>TTRS 2.1.1 测试版｜从安装到使用</title>
   <style>
     :root{--ink:#17283c;--muted:#54677c;--line:#dce5ef;--blue:#2463d4;--soft:#f1f6fc;--paper:#fff}
     *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}
@@ -32,7 +32,7 @@
 <body>
 <div class="layout">
   <aside aria-label="教程目录">
-    <strong>TTRS</strong><p>用户手册 · 2.1.1</p>
+    <strong>TTRS</strong><p>用户手册 · 2.1.1 测试版</p>
     <nav>
       <a href="#start">先看这里</a><a href="#requirements">01 电脑准备</a><a href="#studio">02 安装 Android Studio</a>
       <a href="#avd">03 创建原生 AVD</a><a href="#software">04 打开 TTRS</a><a href="#map">05 配置高德地图</a>
@@ -44,17 +44,19 @@
     <header>
       <div class="eyebrow">WINDOWS · ANDROID STUDIO AVD</div>
       <h1>从第一次安装，<br>到每天直接打开。</h1>
-      <p>TTRS 2.1.1 中文使用教程。把初次环境配置做完，以后只需启动模拟器和软件。</p>
-      <span class="tag">程序分发版</span><span class="tag">不需要编写代码</span><span class="tag">教程可离线阅读</span>
+      <p>TTRS 2.1.1 测试版中文使用教程。把初次环境配置做完，以后只需启动模拟器和软件。</p>
+      <span class="tag">原生 AVD 测试版</span><span class="tag">不需要编写代码</span><span class="tag">教程可离线阅读</span>
     </header>
 
     <section id="start">
       <h2>先确认你拿到的是什么</h2>
+      <div class="note warn"><strong>本页属于 2.1.1 测试渠道。</strong>当前正式版为 TTRS 2.0 系列（构建 2.0.1），优先使用雷电，也保留原生 AVD。安装更简单的正式版请看<a href="https://github.com/linmiao09/GKD_TakeTwo_monipao/blob/main/docs/雷电正式版教程.md">雷电正式版教程</a>。2.1.1 只支持原生 AVD，没有雷电模式。</div>
+      <p>测试版请从<a href="https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/tag/v2.1.1">固定的 v2.1.1 发布页</a>下载 <code>TTRS-2.1.1-Windows.zip</code>；<code>latest</code> 入口属于正式渠道。</p>
       <p>本包提供 Windows 可运行程序与使用文档。TTRS 的源码工程不随包提供。用户运行程序<strong>不需要安装 Node.js、npm、Java 开发工具或项目源码</strong>。</p>
       <div class="flow"><div><b>第一次</b>安装 Android Studio 与 SDK</div><div><b>只做一次</b>创建原生 AVD</div><div><b>配置一次</b>地图、目标应用与路线</div><div><b>以后</b>开 AVD → 开 TTRS</div></div>
       <p>先解压整个发布包，再打开 <code>软件\TTRS.exe</code>。不要只复制 EXE，也不要直接在压缩软件里运行。</p>
       <div class="note">已有正常工作的 Android Studio AVD？可以从<a href="#software">第 04 节</a>开始。本文所有菜单以英文名附中文解释；不同 Android Studio 版本的布局可能略有变化。</div>
-      <p class="subtle">教程维护日期：2026-10-19。软件版本：2.1.1。兼容性基线取自项目此前的 API 28 验证环境，当前未对所有新版系统镜像逐一复测。</p>
+      <p class="subtle">教程维护日期：2026-10-19。软件版本：2.1.1（测试版）。兼容性基线取自项目此前的 API 28 验证环境，当前未对所有新版系统镜像逐一复测。</p>
     </section>
 
     <section id="requirements">
@@ -120,7 +122,8 @@
         <li>安装完成后再次检查，确认显示 <strong>步数兼容版 v2 已就绪</strong>。在 AVD 中打开应用，自行完成必要的登录和定位授权。</li>
       </ol>
       <div class="note warn"><strong>签名冲突不是重新点几次就能解决。</strong>如果提示原版与兼容版签名不同，需要先决定是否手动卸载 AVD 中的原应用。卸载会删除该应用在模拟器中的本地数据；先确认需要的数据已处理完毕。</div>
-      <p>如果发布者提供的版本不包含第三方 APK，“安装 / 修复”可能不可用，请按照该版本说明获取有权使用的 APK。本教程不替代第三方应用的许可或账号规则。</p>
+      <p>也可独立下载<a href="https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/download/v2.1.1/app-taketwo2.0.3-stepfix-v2-signed.apk">TakeTwo 2.0.3 步数兼容补丁 APK</a>，再拖入 AVD 安装。附件 <code>app-taketwo2.0.3-stepfix-v2-signed.apk</code> 是 <code>step-fallback-v2</code> 补丁版，不是未经修改的原版；APK 的 2.0.3 与 TTRS 的 2.1.1 是两个软件的版本号。安装时同样需要注意签名冲突与本地数据。</p>
+      <p>第三方 APK 的权利和使用条件独立适用；本教程不替代第三方应用的许可或账号规则。</p>
     </section>
 
     <section id="map">
@@ -247,7 +250,7 @@
       </ul>
       <p>本程序用于有权开展的开发与兼容性测试，使用时遵守相关应用、服务及机构规则。第三方 APK、SDK、地图服务和各开源组件的条款独立适用；参见同目录的“分发说明.txt”。</p>
     </section>
-    <footer>TTRS 2.1.1 · 中文使用手册 · 文档版本 2026-10-19<br>可使用浏览器“打印 → 另存为 PDF”保存阅读副本。</footer>
+    <footer>TTRS 2.1.1 测试版 · 中文使用手册 · 文档版本 2026-10-19<br>可使用浏览器“打印 → 另存为 PDF”保存阅读副本。</footer>
   </main>
 </div>
 </body>
