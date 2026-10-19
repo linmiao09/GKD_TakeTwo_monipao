@@ -1,0 +1,13 @@
+# This repository publishes documentation only. Program binaries belong in Releases.
+*
+!.gitignore
+!README.md
+!CHANGELOG.md
+!NOTICE.txt
+!THIRD_PARTY_NOTICES.txt
+!docs/
+!docs/**
+!images/
+!images/**
+!resources/
+!resources/icon.png
