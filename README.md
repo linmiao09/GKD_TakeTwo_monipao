@@ -1,71 +1,27 @@
-# 乐跑刷跑（目前正在准备2.1版本，加入了滨海校区的坐标，适配更多乐跑软件中！）
+<img src="resources/cat-run.png" width="64" height="64" alt="蓝底白猫图标">
 
-# ⚠️⚠️⚠️此仓库只做技术交流（软件的问题已经上报学校，得用且用，不知道学校什么时候换软件，只要学校不换软件，此仓库一直可以用）
+# 小猫快跑
 
-## 最终决定程序源码不公开，也不做多开的功能（想要用多开的自己心里想的啥自己明白）
+小猫快跑（原名 TTRS）是一款 Windows 桌面路线编辑与模拟器定位测试工具。本仓库用于发布软件、教程与更新说明，不公开桌面应用的源码工程。
 
-### 由于学校管不了刷跑（咨询了体育部的老师）和受不了各种垃圾付费刷跑的存在，所以分享软件出来和大家做技术交流
-本软件不仅仅适用于Taketwo，步道乐跑和运动世界等等乐跑软件都通用（还没做过测试）
-有需要的可以发邮件[miaomiaolinmiao@gmail.com](mailto:miaomiaolinmiao@gmail.com)给我，拉你进交流群
-## 所使用的技术：（我只是个臭打CTF的，没有任何技术）逆向破解软件，改了计步算法，重新封装
-## 选哪个版本？
+## 下载状态
 
-2.0版本有少量BUG，2.1.1版本去除了雷电模拟器，安装会更复杂
+**“小猫快跑”更名后的 Windows 包尚未在此发布。** 目前 Releases 中的 TTRS 附件是历史版本，不是新版“小猫快跑”安装程序。历史分发包包含修改过的第三方 Android 应用，与独立的 Windows 桌面工具不同。
 
-| 渠道 | 版本 | 模拟器 | 适合谁 |
-| --- | --- | --- | --- |
-| **正式版，优先下载** | **2.0 系列（内部版本 2.0.1）** | **雷电优先，也保留原生 AVD** | 希望安装配置简单的用户 |
-| **测试版 / Pre-release** | **2.1.1** | **仅 Android Studio 原生 AVD** | 已配置 AVD，希望测试地图重载、停止清空等改动的用户 |
+| 历史渠道 | 版本 | 支持的模拟器 |
+| --- | --- | --- |
+| TTRS 正式版 | 2.0 系列（2.0.1） | 雷电、Android Studio 原生 AVD |
+| TTRS 测试版 | 2.1.1（Pre-release） | 仅原生 AVD |
 
+## 模拟器选择
 
-## 正式版下载：2.0 系列 / 2.0.1
+- **雷电模拟器**：安装较简单。桌面工具可按实例索引选择设备；同时运行多个实例的行为尚未测试，请谨慎使用。
+- **原生 AVD**：适合已配置 Android Studio 的用户。先启动虚拟设备，再在桌面工具中选择已启动的设备。
 
-- **[正式版 Release](https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/tag/v2.0.1)** · [直接下载程序 ZIP](https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/download/v2.0.1/TTRS-2.0.1-Windows.zip)
-- **[单独下载配套 APK](https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/download/v2.0.1/app-taketwo2.0.3-stepfix-v2-signed.apk)**
-- **[雷电版安装与使用教程](docs/雷电正式版教程.md)**
+在线地图功能需要自行配置高德 Web 端 Key 和配套安全密钥。请勿在问题反馈或截图中公开密钥、个人坐标和账号信息。
 
-完整解压 ZIP 后打开 `软件/TTRS.exe`，先按教程选择“雷电”，填写“雷电安装目录”和“实例索引”。保留 EXE 旁的所有运行文件。APK 可以拖进雷电窗口安装，程序包内也保留同一份 APK。
+## 使用与反馈
 
-首次需要安装雷电；**不要求安装 Android Studio、Node.js、npm 或开发源码**。雷电从[官方网站](https://www.ldmnq.com/)获取。
+仅在自己拥有或获准测试的环境中使用，不要将模拟数据作为真实运动记录提交。第三方软件的权利与许可独立适用。
 
-## 测试版下载：2.1.1 / 原生 AVD
-
-- **[测试版 Release](https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/tag/v2.1.1)** · [直接下载程序 ZIP](https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/download/v2.1.1/TTRS-2.1.1-Windows.zip)
-- [单独下载配套 APK](https://github.com/linmiao09/GKD_TakeTwo_monipao/releases/download/v2.1.1/app-taketwo2.0.3-stepfix-v2-signed.apk)
-- **[Android Studio / AVD 测试版教程](docs/使用教程.md)**
-
-2.1.1 仅支持原生 AVD，不支持雷电。教程基线：Pixel 3 + Android 9 / API 28 + Google APIs x86_64。该版提供“应用并重新加载地图”和手动停止后清空实时面板等改动。
-
-![TTRS 2.1.1 测试版界面示例](docs/assets/ttrs-2.1.1.png)
-
-上图是 **2.1.1 测试版**，雷电正式版的左侧模式选择与配置项不同。
-
-## 配套 APK 与步数
-
-两版提供的 `app-taketwo2.0.3-stepfix-v2-signed.apk` 内容相同。
-APK SHA-256：
-
-```text
-2dc2f8a3744e3eeed01e445061ffb149aa50bcfff18be8e04d9e1b206f34b5e4
-```
-
-安装若遇签名冲突，需要先处理需保留的数据，再决定是否手动卸载原应用。**卸载会清除模拟器中该应用的本地数据。**
-
-## 下载时注意
-
-- GitHub 的 **Latest** 指向正式版；2.1.1 标记 **Pre-release**，不能只按数字大小选版本。
-- 下载各 Release 的 `TTRS-版本-Windows.zip` 与需要的 APK。
-- **Source code (zip / tar.gz)** 是 GitHub 自动提供的文档仓库快照，不是可运行程序，也不含 TTRS 源码工程。
-- 两个版本放在不同目录，切换前退出另一版。两版可能使用同一 Windows 用户的已有配置，切换后核对模式、目录和路线。
-- 高德在线地图需要用户自己的 Web 端（JS API）Key 和配套安全密钥。
-
-## 文档、许可与反馈
-
-- [雷电正式版教程](docs/雷电正式版教程.md)
-- [AVD 测试版教程](docs/使用教程.md)
-- [更新记录](CHANGELOG.md)
-- [分发及第三方组件说明](NOTICE.txt)
-
-本项目用于有权开展的开发、技术交流与兼容性测试，请遵守相关应用、服务及机构规则。第三方组件与 APK 的权利、使用和再分发条件独立适用；本仓库说明不构成额外授权。
-
-问题反馈：[提交 Issue](https://github.com/linmiao09/GKD_TakeTwo_monipao/issues)，或联系 [miaomiaolinmiao@gmail.com](mailto:miaomiaolinmiao@gmail.com)。请提供 TTRS 和模拟器版本、错误文字及遮挡隐私后的截图，勿提供密码、地图密钥或认证文件。
+[更新记录](CHANGELOG.md) · [分发说明](NOTICE.txt) · [第三方组件说明](THIRD_PARTY_NOTICES.txt) · [问题反馈](https://github.com/linmiao09/GKD_TakeTwo_monipao/issues)
